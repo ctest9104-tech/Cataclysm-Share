@@ -190,11 +190,40 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
   background:linear-gradient(to top,rgba(8,6,4,.97) 0%,rgba(8,6,4,.6) 60%,transparent 100%)
 }
 .f-name{font-family:'Black Ops One',cursive;font-size:12.5px;letter-spacing:.08em;line-height:1.2}
-.f-name.sy{color:#00CED1;text-shadow:0 0 10px rgba(0,206,209,.55)}
-.f-name.sh{color:#76C442;text-shadow:0 0 10px rgba(118,196,66,.55)}
+.f-name.sy{color:var(--or);text-shadow:0 0 10px rgba(255,109,35,.55)}
+.f-name.sh{color:#4A9EE8;text-shadow:0 0 10px rgba(74,158,232,.55)}
 .f-name.my{color:#9B59B6;text-shadow:0 0 10px rgba(155,89,182,.55)}
-.f-name.su{color:var(--or);text-shadow:0 0 10px rgba(255,109,35,.55)}
+.f-name.su{color:#76C442;text-shadow:0 0 10px rgba(118,196,66,.55)}
 .f-desc{font-family:'Share Tech Mono',monospace;font-size:8px;color:rgba(106,96,88,.88);line-height:1.5;margin-top:5px}
+@keyframes apexFogReveal{
+  0%{opacity:0;filter:blur(14px)}
+  100%{opacity:1;filter:blur(0)}
+}
+@keyframes apexPulse{
+  0%,100%{text-shadow:0 0 60px rgba(139,0,0,.95),0 0 120px rgba(100,0,0,.55),0 0 200px rgba(55,0,0,.28)}
+  50%{text-shadow:0 0 35px rgba(190,0,0,1),0 0 72px rgba(155,0,0,.72),0 0 120px rgba(100,0,0,.46),0 0 10px rgba(255,30,0,.38)}
+}
+.f-apex-wrap{
+  width:100%;text-align:center;position:relative;flex-shrink:0;
+  opacity:0;animation:apexFogReveal 1.8s ease-out 2.8s forwards;will-change:filter,opacity
+}
+.f-apex-lbl{
+  font-family:'Share Tech Mono',monospace;font-size:7.5px;letter-spacing:.55em;
+  color:rgba(139,0,0,.45);margin-bottom:4px;text-transform:uppercase
+}
+.f-apex-t{
+  font-family:'Black Ops One',cursive;
+  font-size:clamp(50px,9.5vw,112px);
+  letter-spacing:.32em;color:#780000;
+  text-shadow:0 0 60px rgba(139,0,0,.95),0 0 120px rgba(100,0,0,.55),0 0 200px rgba(55,0,0,.28);
+  line-height:1;
+  animation:apexPulse 3.5s ease-in-out 6s infinite
+}
+.f-apex-rule{
+  width:150px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(139,0,0,.45),transparent);
+  margin:8px auto 0;opacity:0;animation:riseUp .6s ease 5.8s forwards
+}
 
 /* ══════════════════ SCENE: GAMEPLAY ══════════════════ */
 .s-gameplay{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative}
@@ -440,6 +469,11 @@ facs:()=>`<div class="s-factions">
       <div class="f-desc">No powers. No miracles. Just cunning, leadership &amp; the will to live.</div></div>
     </div>
   </div>
+  <div class="f-apex-wrap">
+    <div class="f-apex-lbl">◆ &nbsp;a sinister fifth faction lurks in the darkness&nbsp; ◆</div>
+    <div class="f-apex-t">APEX</div>
+    <div class="f-apex-rule"></div>
+  </div>
 </div>`,
 
 game:()=>`<div class="s-gameplay">
@@ -460,8 +494,8 @@ game:()=>`<div class="s-gameplay">
         <div class="mech-b">Every booster pack is immediately playable — dice included. One pack, zero barriers. Rip it open. Fight starts now.</div>
       </div>
       <div class="mech"><span class="mech-ico">🔀</span>
-        <div class="mech-t">2–4 PLAYERS</div>
-        <div class="mech-b">Duels, team-ups, or four-player free-for-alls. Play out of the pack or build your collection and construct a full deck.</div>
+        <div class="mech-t">2+ PLAYERS</div>
+        <div class="mech-b">Duels, team-ups, or multiplayer free-for-alls. Play out of the pack or build your collection and construct a full deck.</div>
       </div>
     </div>
     <div class="ctags">
