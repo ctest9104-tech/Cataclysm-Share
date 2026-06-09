@@ -160,18 +160,20 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
 /* ══════════════════ SCENE: FACTIONS ══════════════════ */
 .s-factions{
   width:100%;height:100%;display:flex;flex-direction:column;align-items:center;
-  justify-content:center;gap:22px;
-  background:radial-gradient(ellipse at center,rgba(30,22,12,1) 0%,var(--bg) 100%);padding:20px
+  justify-content:center;gap:12px;
+  background:radial-gradient(ellipse at center,rgba(30,22,12,1) 0%,var(--bg) 100%);
+  padding:54px 16px 50px;overflow:hidden
 }
 .f-hdr{
   font-family:'Bebas Neue',cursive;font-size:clamp(14px,2.3vw,28px);letter-spacing:.58em;
   color:var(--or);opacity:0;animation:riseUp .5s ease .1s forwards
 }
-.f-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:860px;width:100%}
+.f-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;max-width:min(860px,96vw);width:100%}
 .fc{
-  aspect-ratio:5/7;position:relative;border-radius:8px;overflow:hidden;
+  aspect-ratio:3/4;position:relative;border-radius:8px;overflow:hidden;
   border:1px solid rgba(255,109,35,.14);background:var(--dark);
   box-shadow:0 24px 48px rgba(0,0,0,.9);
+  max-height:calc(100vh - 195px);
   transform:rotateY(90deg) scale(.85);opacity:0;
   animation:cardFlip .65s cubic-bezier(.2,.85,.35,1) both;
   cursor:pointer;transition:transform .3s,box-shadow .3s
@@ -365,12 +367,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(
 
 <script>
 const SCENES=[
-  {key:'boot',  label:'01 / 07',dur:4600},
-  {key:'title', label:'02 / 07',dur:5200},
-  {key:'world', label:'03 / 07',dur:6000},
-  {key:'facs',  label:'04 / 07',dur:8500},
-  {key:'game',  label:'05 / 07',dur:7000},
-  {key:'pack',  label:'06 / 07',dur:7000},
+  {key:'boot',  label:'01 / 07',dur:7000},
+  {key:'title', label:'02 / 07',dur:9000},
+  {key:'world', label:'03 / 07',dur:11000},
+  {key:'facs',  label:'04 / 07',dur:14000},
+  {key:'game',  label:'05 / 07',dur:12000},
+  {key:'pack',  label:'06 / 07',dur:12000},
   {key:'cta',   label:'07 / 07',dur:Infinity},
 ];
 const TDUR=SCENES.slice(0,-1).reduce((a,s)=>a+s.dur,0);
